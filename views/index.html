@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{.Title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- just glorified <script> tags for js/css libs -->
+  {{if .USE_UIKIT}}
+    {{if .USE_CDN}}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.0/dist/css/uikit.min.css" />
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.0/dist/js/uikit.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.0/dist/js/uikit-icons.min.js"></script>
+    {{else}}
+      <link rel="stylesheet" href="static/css/uikit.css" />
+      <script src="/static/js/uikit-icons.js"></script>
+      <script src="/static/js/uikit.js"></script>
+    {{end}}
+  {{end}}
+  {{if .USE_MATERIALIZE}}
+    {{if .USE_CDN}}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {{else}}
+      <link rel="stylesheet" href="static/css/materialize.css">
+      <script src="/static/js/materialize.js"></script>
+    {{end}}
+  {{end}}
+  {{if .USE_PICOCSS}}
+    {{if .USE_CDN}}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    {{else}}
+      <link rel="stylesheet" href="/static/css/pico.css">
+    {{end}}
+  {{end}}
+  {{if .USE_BULMA}}
+    {{if .USE_CDN}}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+      <script src="https://kit.fontawesome.com/5f5f5e362d.js" crossorigin="anonymous"></script>
+    {{else}}
+      <link rel="stylesheet" href="static/css/bulma.css">
+      <script src="static/js/fontawesome.js"></script>
+    {{end}}
+  {{end}}
+  {{if .USE_HTMX}}
+    {{if .USE_CDN}}
+      <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    {{else}}
+      <script src="static/js/htmx.min.js"></script>
+    {{end}}
+  {{end}}
+  {{if .USE_HYPERSCRIPT}}
+    {{if .USE_CDN}}
+      <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+    {{else}}
+      <script src="static/js/hyperscript.min.js"></script>
+    {{end}}
+  {{end}}
+  {{if .USE_FLEXBOXGRID}}
+    <link rel="stylesheet" type="text/css" href="static/css/flexboxgrid.css">
+  {{end}}
+  <script src="static/js/custom.js" defer></script>
+</head>
+
+<body>
+  {{.EMBED_VIEWS}}
+</body>
+
+</html>

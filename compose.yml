@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      target: app
+    ports:
+      - 3300:3300
+    volumes:
+      - ./:/app # for hot-reloading

@@ -83,6 +83,7 @@ func main() {
 	// setupModels(dbConn)
 
 	// generate HTML boilerplate template from the index template
+	os.Mkdir("./views/generated", 0666)
 	HTMLBoilerplateTemplate, err := template.ParseFiles("./views/index.html")
 	if err != nil {
 		panic(err)

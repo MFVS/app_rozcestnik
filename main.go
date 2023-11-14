@@ -25,13 +25,13 @@ import (
 )
 
 var htmlContainerConfig = fiber.Map{
-	"Title": "Go fiber template",
+	"Title": "STAG | Služby",
 	// "USE_CDN":     true,
 	"USE_HTMX":        true,
 	"USE_FLEXBOXGRID": true,
 	"USE_BULMA":       true,
 	"EMBED_VIEWS":     "{{embed}}",
-	// "USE_HYPERSCRIPT": true,
+	"USE_HYPERSCRIPT": true,
 	// "USE_PICOCSS":     true,
 	// "USE_UIKIT":   true,
 	// "USE_MATERIALIZE": true,
@@ -148,7 +148,7 @@ func main() {
 	app.Post("/createCar", CreateCar)
 	app.Get("/404", PlainPageRender("views/pages/404"))
 	app.Get("/401", PlainPageRender("views/pages/401"))
-	app.Get("/favicon.ico", func(c *fiber.Ctx) error { return c.Redirect("https://bulma.io/images/bulma-logo.png") })
+	// app.Get("/favicon.ico", func(c *fiber.Ctx) error { return c.Redirect("https://bulma.io/images/bulma-logo.png") })
 	app.Static("/static", "./static")
 
 	log.Fatal(app.Listen(":3300"))

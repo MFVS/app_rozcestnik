@@ -8,23 +8,34 @@
   .card-content {
     height: 100%;
   }
+
+  .zoom {
+    transition: transform 0.2s;
+    object-fit: cover;
+    text-decoration: none;
+  }
+
+  .zoom:hover {
+    transform: scale(1.2);
+  }
 </style>
 
-<section class="hero is is-link p-5">
+<section class="hero is-medium is-link p-5" style="text-align: center;">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">MFVS Rozcestnik</h1>
-      <h2 class="subtitle">Přehled studentských aplikací PŘF UJEP</h2>
+      <h1 class="title">Aplikace nad webovými službami</h1>
+      <h2 class="subtitle">Přehled studentských aplikací</h2>
     </div>
   </div>
 </section>
+
 <progress id="progress" class="progress is-primary htmx-indicator"></progress>
+
 <div id="programy">
   <div class="container p-5">
     <div class="columns is-multiline is-centered">
-      <!-- Kartičky jdou sem -->
       <div class="column is-6-tablet is-3-desktop is-8-widescreen is-4-fullhd">
-        <div class="card has-background-light is-hoverable">
+        <div class="card has-background-light zoom">
           <div class="card-image">
             <figure class="image is-1920x1080">
               <img src="static/images/vykazy_view.png" alt="Placeholder image">
@@ -35,14 +46,14 @@
             <div class="subtitle is-6">Přehled výuky vyučujících.</div>
           </div>
           <footer class="card-footer">
-            <a href="https://stag-vykazy.streamlit.app/" class="card-footer-item">
-              <i class="material-icons has-text-black">Přejít do aplikace</i>
-            </a>
+            <div class="card-footer-item button is-light" _="on click add .is-active to #modal_vykazy">
+              <a class="has-text-black">Info</a>
+            </div>
           </footer>
         </div>
       </div>
       <div class="column is-6-tablet is-3-desktop is-8-widescreen is-4-fullhd">
-        <div class="card has-background-light is-hoverable">
+        <div class="card has-background-light zoom">
           <div class="card-image">
             <figure class="image is-1920x1080">
               <img src="static/images/kval_prace_view.png" alt="Placeholder image">
@@ -53,12 +64,55 @@
             <div class="subtitle is-6">Přehled kvalifikačních prací podle vyučujících.</div>
           </div>
           <footer class="card-footer">
-            <a href="https://ki.ujep.cz" class="card-footer-item">
-              <i class="material-icons has-text-black">Přejít do aplikace</i>
-            </a>
+            <div class="card-footer-item button is-light" _="on click add .is-active to #modal_kval_prace">
+              <a class="has-text-black">Info</a>
+            </div>
           </footer>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
+<div id="modal_vykazy" class="modal">
+  <div class="modal-background" _="on click remove .is-active from #modal_vykazy"></div>
+  <div class="modal-content">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">STAG Výkazy</p>
+
+        <div class="content">
+          Webová aplikace, která zobrazuje přehled výuky vyučujících.
+          Uživatelé mají k dispozici možnost zobrazení pouze víkendové výuky, nebo výuky za všechny pracovní dny.
+          Data jsou získávána z webových služeb STAGu.
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <a href="https://stag-vykazy.streamlit.app/" class="card-footer-item">Přejít do aplikace</a>
+      </footer>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close" _="on click remove .is-active from #modal_vykazy"></button>
+</div>
+
+<div id="modal_kval_prace" class="modal">
+  <div class="modal-background" _="on click remove .is-active from #modal_kval_prace"></div>
+  <div class="modal-content">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">STAG Kvalifikační práce</p>
+        <div class="content">
+          Webová aplikace, která zobrazuje přehled kvalifikačních prací podle vyučujících.
+          Data jsou získávána z webových služeb STAGu.
+        </div>
+      </div>
+      <footer class="card-footer">
+        <a href="#" class="card-footer-item">Přejít do aplikace</a>
+      </footer>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"
+    _="on click remove .is-active from #modal_kval_prace"></button>
 </div>
